@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ignaciofabiana.dslist.dto.GameMinDTO;
 import com.ignaciofabiana.dslist.entities.Game;
 import com.ignaciofabiana.dslist.repositories.GameRepository;
 
@@ -14,8 +15,9 @@ public class GameService {
     @Autowired // injetando uma instancia de gameRepositpry dentro de GameService
     private GameRepository gameRepository;
 
-    public List<Game> findAll() {
+    public List<GameMinDTO> findAll() {
       List<Game> result = gameRepository.findAll();
-      return result;
+      List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
+      return dto;
     }
 }
