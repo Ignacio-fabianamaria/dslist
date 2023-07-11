@@ -1,4 +1,5 @@
 package com.ignaciofabiana.dslist.entities;
+import java.util.Objects;
 
 public class Game {
     // atributos da classe
@@ -11,11 +12,12 @@ public class Game {
     private String shortDescription;
     private String longDescription;
     
+    
 
     public Game() {
         
     }
-    
+    // construtores da classe
     public Game(Long id, String title, Integer year, String genre, String plataform,
     String imgUrl, String shortDescription, String longDescription) {
         this.id = id; // o id do atributo recebe o id que veio como parâmetro
@@ -29,6 +31,7 @@ public class Game {
         
     }
     
+    // métodos getter and setter
     public Long getId() {
         return id;
     }
@@ -91,6 +94,24 @@ public class Game {
 
     public void setLongDescription(String longDescription) {
         this.longDescription = longDescription;
+    }
+
+    // métodos hashCode() e equals() para comparar objetos e determinar a igualdade entre eles.
+    @Override
+    public int hashCode(){
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Game other = (Game) obj;
+		return Objects.equals(id, other.id);
     }
     
 
