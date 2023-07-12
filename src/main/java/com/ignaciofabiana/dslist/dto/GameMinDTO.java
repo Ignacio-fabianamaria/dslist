@@ -1,6 +1,7 @@
 package com.ignaciofabiana.dslist.dto;
 
 import com.ignaciofabiana.dslist.entities.Game;
+import com.ignaciofabiana.dslist.projection.GameMimProjection;
 
 public class GameMinDTO {
     private Long id;
@@ -20,6 +21,14 @@ public class GameMinDTO {
        imgUrl = entity.getImgUrl();
        shortDescription = entity.getShortDescription();
     }
+
+    public GameMinDTO(GameMimProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
+     }
 
     public Long getId() {
         return id;
