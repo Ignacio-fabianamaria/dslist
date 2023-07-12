@@ -16,6 +16,11 @@ public class GameList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    public GameList() {
+        // Construtor vazio
+    }
+    
     
     public GameList(Long id, String name) {
         this.id = id;
